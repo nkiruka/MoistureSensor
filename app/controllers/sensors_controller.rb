@@ -13,7 +13,7 @@ class SensorsController < ApplicationController
   end
 
   def show
-
+    @sensor = Sensor.find_by(id: params[:id])
   end
 
   def edit
