@@ -1,0 +1,20 @@
+<table id="sensors" class="display table" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Model</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sensors.each do |sensor| %>
+      <tr>
+        <td><%= sensor.name %></td>
+        <td><%= sensor.description %></td>
+        <td><%= sensor.model %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
