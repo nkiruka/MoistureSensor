@@ -29,6 +29,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# add jquery to rails
+gem 'jquery-rails'
+# add pagination
+gem 'will_paginate-bootstrap'
+# add bootstrap
+gem 'bootstrap_sb_admin_base_v2'
+# add time library
+gem 'momentjs-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
