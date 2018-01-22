@@ -9,11 +9,11 @@ class SensorsController < ApplicationController
   end
 
   def create
-    sensor = Sensor.new(sensor_params)
-    if sensor.save
-    render json: { id: sensor.id }, status: :ok
+    @sensor = Sensor.new(sensor_params)
+    if @sensor.save
+    render json: { id: @sensor.id }, status: :ok
     else
-    render json: { errors: sensor.errors.messages },
+    render json: { errors: @sensor.errors.messages },
       status: :bad_request
     end
   end
@@ -23,11 +23,20 @@ class SensorsController < ApplicationController
   end
 
   def edit
-
+    @sensor = Sensor.find_by(id: params[:id])
   end
 
   def update
-
+    @sensor = Sensor.find_by(id: params[:id])
+    respond_to do |format|
+      if @sensor.update(sensor_params)
+        format.html { redirect_to @sensor, notice: 'Sensor was successfully updated.' }
+        format.json { render :show, status: :ok, location: @sensor }
+      else
+        format.html { render :edit }
+        format.json { render json: @sensor.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
