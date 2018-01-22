@@ -6,6 +6,7 @@ class ReadingsController < ApplicationController
   end
 
   def show
+    @reading = Reading.find_by(id: params[:id])
   end
 
 
@@ -14,6 +15,7 @@ class ReadingsController < ApplicationController
   end
 
   def edit
+    @reading = Reading.find_by(id: params[:id])
   end
 
   def create
@@ -33,7 +35,16 @@ class ReadingsController < ApplicationController
 
 
   def update
-
+    @reading = Reading.find_by(id: params[:id])
+    respond_to do |format|
+      if @reading.update(reading_params)
+        format.html { redirect_to @reading, notice: 'Moisture reading was successfully updated.' }
+        format.json { render :index, status: :ok, location: @reading}
+      else
+        format.html { render :edit }
+        format.json { render json: @reading.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
