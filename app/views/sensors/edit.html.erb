@@ -1,17 +1,6 @@
-<%= form_for(@sensor) do |f| %>
-    <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </div>
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </div>
-    <div class="form-group">
-      <%= f.label :model %>
-      <%= f.text_field :model %>
-    </div>
-    <div class="form-group actions">
-      <%= f.submit 'Submit', :class => 'btn btn-lg btn-success btn-block' %>
-    </div>
+<% content_for(:page_header) do %>
+  Edit sensor
 <% end %>
+<% content_for :panel_heading do %><%= @sensor.name %><% end %>
+
+<%= render 'form' %>
