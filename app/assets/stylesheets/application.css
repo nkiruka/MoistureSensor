@@ -16,10 +16,6 @@
  *= require_self
  */
 
- .login-panel {
-  margin-top: 12px;
-}
-
 .action-buttons {
   text-align: right;
 }
