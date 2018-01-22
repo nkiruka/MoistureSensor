@@ -2,7 +2,7 @@ class ReadingsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-
+    @readings = Reading.all
   end
 
   def show
@@ -29,7 +29,5 @@ class ReadingsController < ApplicationController
 
   end
 
-
-end
 
 end
