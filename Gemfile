@@ -35,6 +35,9 @@ gem 'jquery-rails'
 gem 'will_paginate-bootstrap'
 # add bootstrap
 gem 'bootstrap_sb_admin_base_v2'
+
+# pagination
+gem 'will_paginate'
 # add time library
 gem 'momentjs-rails'
 
