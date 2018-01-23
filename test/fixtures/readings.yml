@@ -4,8 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+reading_one:
+  sensor_id: sensor_1
+  value: 20
 # column: value
 #
-two: {}
+reading_two:
+  sensor_id: sensor_2
+  value: 80
 # column: value

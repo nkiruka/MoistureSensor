@@ -6,7 +6,6 @@ class ReadingsController < ApplicationController
   end
 
   def show
-    @reading = Reading.find_by(id: params[:id])
   end
 
 
@@ -15,7 +14,6 @@ class ReadingsController < ApplicationController
   end
 
   def edit
-    @reading = Reading.find_by(id: params[:id])
   end
 
   def create
@@ -33,13 +31,11 @@ class ReadingsController < ApplicationController
     # end
   end
 
-
   def update
-    @reading = Reading.find_by(id: params[:id])
     respond_to do |format|
       if @reading.update(reading_params)
         format.html { redirect_to @reading, notice: 'Moisture reading was successfully updated.' }
-        format.json { render :index, status: :ok, location: @reading}
+        format.json { render :show, status: :ok, location: @reading}
       else
         format.html { render :edit }
         format.json { render json: @reading.errors, status: :unprocessable_entity }
@@ -48,7 +44,7 @@ class ReadingsController < ApplicationController
   end
 
   def destroy
-    reading.destroy
+    @reading.destroy
     respond_to do |format|
       format.html { redirect_to measures_url, notice: 'Moisture reading was successfully destroyed.' }
       format.json { head :no_content }
@@ -56,9 +52,13 @@ class ReadingsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow permitted values.
-    def reading_params
-      params.require(:reading).permit(:sensor_id, :value)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reading
+    @reading = Reading.find(params[:id])
+  end
 
+  # Never trust parameters from the scary internet, only allow permitted values.
+  def reading_params
+    params.require(:reading).permit(:sensor_id, :value)
+  end
 end
