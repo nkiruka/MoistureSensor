@@ -1,0 +1,19 @@
+<table id="reading" class="display table" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <!-- <th>Plant</th> -->
+      <th>Name</th>
+      <th>Threshold</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plants.each do |plant| %>
+      <tr>
+        <!-- <td><%#= plant.plant_id %></td> -->
+        <td><%= plant.name %></td>
+        <td><%= plant.threshold %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
