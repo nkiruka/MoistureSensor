@@ -1,4 +1,4 @@
 class Plant < ApplicationRecord
-  # has_many :readings
-  # has_many :sensors, :through => :readings
+  has_many :readings
+  has_many :sensors, :through => :readings
 end
