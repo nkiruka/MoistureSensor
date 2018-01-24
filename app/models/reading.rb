@@ -1,4 +1,7 @@
 class Reading < ApplicationRecord
+  belongs_to :sensor
+  belongs_to :plant
+
   validates_presence_of :sensor_id
   validates_numericality_of :value  #numericality: { only_integer: true}
   # numericality: { only_integer: true, greater_than: 0, less_than: 6 }
