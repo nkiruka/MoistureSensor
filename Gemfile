@@ -41,6 +41,8 @@ gem 'will_paginate'
 # add time library
 gem 'momentjs-rails'
 
+gem 'bootstrap'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
