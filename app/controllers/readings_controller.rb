@@ -8,7 +8,6 @@ class ReadingsController < ApplicationController
   def show
   end
 
-
   def new
     @reading = Reading.new
   end
@@ -52,13 +51,9 @@ class ReadingsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_reading
-    @reading = Reading.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow permitted values.
+  # Only allow what is required.
   def reading_params
     params.require(:reading).permit(:sensor_id, :value)
   end
+  
 end

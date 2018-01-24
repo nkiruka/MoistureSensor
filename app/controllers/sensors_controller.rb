@@ -3,11 +3,6 @@ class SensorsController < ApplicationController
 
   def index
     @sensors =  Sensor.all
-    # if @sensors.any?
-    #     render json: @sensors
-    #   else
-    #     render json: {}, status: :not_found
-    #   end
   end
 
   def new
@@ -22,17 +17,6 @@ class SensorsController < ApplicationController
     render json: { errors: sensor.errors.messages },
       status: :bad_request
     end
-
-    # @sensor = Sensor.new(sensor_params)
-    # respond_to do |format|
-    #   if @sensor.save
-    #     format.html { redirect_to @sensor, notice: 'Sensor was successfully created.' }
-    #     format.json { render :show, status: :created, location: @sensor }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @sensor.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   def show
@@ -53,17 +37,7 @@ class SensorsController < ApplicationController
                               .order("interval_timestamp desc")
                               .map{|m| { time: m.interval_timestamp,
                                           value: m.value } }
-    #
-    # if sensor
-    #   render(
-    #     json: sensor.as_json(only: [:name, :description, :Model]),
-    #     status: :ok
-    #   )
-    # else
-    #   render json: {nothing: true}, status: :not_found
-    # end
 
-    # @sensor_readings = @sensor.readings.map{|r| { time: r.created_at, value: r.value } }
   end
 
   def edit
@@ -95,13 +69,9 @@ class SensorsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_sensor
-    @sensor = Sensor.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow what is required.
+  # Only allow what is required.
   def sensor_params
     params.require(:sensor).permit(:name, :description, :model)
   end
+
 end
