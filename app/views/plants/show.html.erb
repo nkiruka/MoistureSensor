@@ -2,34 +2,35 @@
   <%= "Plant details" %>
 <% end %>
 
-<table>
-  <tr>
-    <th>Plant Name</th>
-    <th>Threshold</th>
-  </tr>
-  <tr>
-    <td><%= @plant.name %></td>
-    <td><%= @plant.threshold %></td>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Plant Name</th>
+      <th>Threshold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @plant.name %></td>
+      <td><%= @plant.threshold %></td>
+    </tr>
+  </tbody>
 </table>
 
 <table class="table">
-  <tr>
-    <th>Sensor ID</th>
-    <th>Sensor Reading</th>
-  </tr>
-<% @plant.readings.each do |reading| %>
-
-  <tr class="<%= "exceed-threshold" if ("#{reading.value}" > "#{@plant.threshold}") %>">
-    <td><%= "#{reading.sensor.id}" %></td>
-    <td><%= "#{reading.value}" %></td>
-  </tr>
-
-  <!-- <tr>
-    <% if "#{reading.value}" > "#{@plant.threshold}" %>
-      <tr class="exceed-threshold">
+  <thead>
+    <tr>
+      <th>Sensor ID</th>
+      <th>Sensor Reading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @plant.readings.each do |reading| %>
+      <tr class="<%= "danger" if ("#{reading.value}" > "#{@plant.threshold}") %>">
+        <td><%= "#{reading.sensor.id}" %></td>
+        <td><%= "#{reading.value}" %></td>
+      </tr>
     <% end %>
-    <td><%#= "#{reading.value}" %></td>
-  </tr> -->
-  <% end %>
+  </tbody>
+
 </table>

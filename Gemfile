@@ -36,12 +36,17 @@ gem 'will_paginate-bootstrap'
 # add bootstrap
 gem 'bootstrap_sb_admin_base_v2'
 
+gem 'bootstrap3-rails'
+
 # pagination
 gem 'will_paginate'
 # add time library
 gem 'momentjs-rails'
 
-gem 'bootstrap'
+gem 'bootstrap-sass'
+
+gem 'pry-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,3 +1,12 @@
-<p>
-Welcome to Green$mart Admin Panel. 
-</p>
+<div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= content_for?(:panel_heading) ? yield(:panel_heading) : "Dashboard" %>
+    </div>
+    <div class="panel-body">
+      <p>
+        Welcome to Green$mart Admin Panel.
+      </p>
+    </div>
+  </div>
+</div>
